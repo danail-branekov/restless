@@ -2,7 +2,7 @@
 
 `restless` is a utility to temporarily disable system suspend while a process
 is running. This is useful to ensure that long running tasks (e.g. compiling a
-huge application) are not be paused while you are away living your real life.
+huge application) are not paused while you are away living your real life.
 
 It sends [dbus](https://www.freedesktop.org/wiki/Software/dbus/) messages,
 therefore it only works on Linux (unless other operating systems support dbus).
@@ -28,6 +28,7 @@ directory.
 1. Once the long running application exits or is aborted, `restless` would
    invoke `org.freedesktop.PowerManagement.Inhibit.UnInhibit` method to let the
    system know that it can go back to the configured power management policy
+1. Closes the dbus connection
 
 An important detail for systems using
 [powerdevil](https://github.com/KDE/powerdevil) (KDE's power management
@@ -36,7 +37,7 @@ process runs. If it gets closed immediately after calling the `Inhibit` method,
 `powerdevil` ignores the inhibit request. Thanks to `d_ed`'s answer on this
 [reddit
 thread](https://www.reddit.com/r/kde/comments/hruubo/unable_to_inhibit_suspend/)
-to bring me to [this
+that brought me to [this
 commit](https://github.com/KDE/powerdevil/commit/d21102cc6c7a4db204a29f376ce5eb316ef57a6e)
 in powerdevil.
 
