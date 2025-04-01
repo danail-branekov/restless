@@ -1,4 +1,4 @@
-module github.com/danailster/restless
+module github.com/danail-branekov/restless
 
 go 1.17
 
