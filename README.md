@@ -10,6 +10,10 @@ therefore it only works on Linux (unless other operating systems support dbus).
 I have only tested it on KDE Plasma but it should also work on other desktop
 environments.
 
+## How to install it
+1. Install [Golang](https://go.dev/)
+2. Run `go install github.com/danail-branekov/restless@latest`
+
 ## How to build it
 
 Clone this repository and run `make`. The binary is built into the current
